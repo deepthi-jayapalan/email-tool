@@ -1,0 +1,47 @@
+<mjml>
+  <mj-head>
+    <mj-title>{{SubjectLine}}</mj-title>
+    <mj-preview>{{Preheader}}</mj-preview>
+    <mj-attributes>
+      <mj-all font-family="Arial, Helvetica, sans-serif" />
+      <mj-text color="#344054" font-size="16px" line-height="1.6" />
+      <mj-button background-color="#155EEF" color="#FFFFFF" border-radius="6px" font-weight="700" inner-padding="13px 18px" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#F8FAFC">
+    <mj-section background-color="#FFFFFF" padding="18px 24px">
+      <mj-column>
+        <mj-text color="#155EEF" font-size="18px" font-weight="700">{{LogoText}}</mj-text>
+      </mj-column>
+      <mj-column>
+        <mj-text align="right" color="#667085" font-size="12px">
+          <strong>{{CampaignName}}</strong><br />
+          {{SenderName}}<br />
+          {{SenderIdentity}}
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#155EEF" padding="30px 24px">
+      <mj-column>
+        <mj-text color="#FFFFFF" font-size="30px" line-height="1.15" font-weight="700">{{BannerHeadline}}</mj-text>
+        <mj-text color="#EAF2FF" font-size="15px">{{Preheader}}</mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#FFFFFF" padding="26px 24px">
+      <mj-column>
+        <mj-text color="#101828" font-size="24px" line-height="1.25" font-weight="700">{{MainHeading}}</mj-text>
+        <mj-text>{{BodyHtml}}</mj-text>
+        <mj-text>{{BulletHtml}}</mj-text>
+        <mj-button href="{{PrimaryUrl}}" align="left">{{PrimaryCta}}</mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#FFFFFF" padding="16px 24px" border-top="1px solid #EAECF0">
+      <mj-column>
+        <mj-text color="#667085" font-size="12px">
+          Kodexter Technologies Pvt. Ltd. | You are receiving this email because you connected with Kodexter.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
+

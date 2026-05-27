@@ -1,0 +1,93 @@
+[
+  {
+    "category": "Product Launch",
+    "objective": "Announce a new software product, service package, or digital solution.",
+    "layout": "Left headline and CTA with right-side product UI mockup.",
+    "headlineExamples": [
+      "Launch Smarter Digital Products",
+      "Introducing Scalable Software Solutions for Growing Teams"
+    ],
+    "ctaSuggestions": [
+      "Explore the Solution",
+      "Book a Product Walkthrough"
+    ],
+    "colors": ["#101828", "#155EEF", "#06B6D4", "#FFFFFF"],
+    "imageStyle": "SaaS dashboard mockup, clean interface panels, responsive device frame"
+  },
+  {
+    "category": "AI & Automation",
+    "objective": "Promote AI automation, workflow optimization, and intelligent business systems.",
+    "layout": "Headline with connected workflow nodes and compact AI/analytics icons.",
+    "headlineExamples": [
+      "Automate Workflows. Accelerate Growth.",
+      "Practical AI Solutions for Smarter Business Operations"
+    ],
+    "ctaSuggestions": [
+      "Start an Automation Assessment",
+      "Discover AI Use Cases"
+    ],
+    "colors": ["#101828", "#06B6D4", "#155EEF", "#FFFFFF"],
+    "imageStyle": "Line icons, AI chip motif, automation flow diagram"
+  },
+  {
+    "category": "Software Development Services",
+    "objective": "Position Kodexter as a reliable custom software and web development partner.",
+    "layout": "Left-aligned headline, service bullets, and right-side code or architecture graphic.",
+    "headlineExamples": [
+      "Build Reliable Software for Your Business",
+      "From Idea to Scalable Digital Platform"
+    ],
+    "ctaSuggestions": [
+      "Discuss Your Project",
+      "Get a Development Estimate"
+    ],
+    "colors": ["#155EEF", "#101828", "#12B76A", "#FFFFFF"],
+    "imageStyle": "Code editor panels, architecture blocks, engineering icons"
+  },
+  {
+    "category": "Client Success",
+    "objective": "Highlight outcomes, case studies, testimonials, and customer transformation stories.",
+    "layout": "Outcome statement, proof metric, short case summary, and CTA.",
+    "headlineExamples": [
+      "Helping Teams Move Faster With Better Digital Systems",
+      "Customer Success Built On Clarity, Speed, And Technology"
+    ],
+    "ctaSuggestions": [
+      "Read the Case Study",
+      "See What We Built"
+    ],
+    "colors": ["#FFFFFF", "#155EEF", "#12B76A", "#344054"],
+    "imageStyle": "Business team imagery, testimonial card, success metrics"
+  },
+  {
+    "category": "Webinar/Event Promotion",
+    "objective": "Drive registrations for webinars, demos, workshops, or live sessions.",
+    "layout": "Event title, date badge, speaker/company identity, and CTA.",
+    "headlineExamples": [
+      "Live Webinar: AI Automation For Growing Businesses",
+      "Build Better Digital Workflows In 2026"
+    ],
+    "ctaSuggestions": [
+      "Reserve Your Seat",
+      "Register Now"
+    ],
+    "colors": ["#101828", "#06B6D4", "#F79009", "#FFFFFF"],
+    "imageStyle": "Calendar icon, speaker headshot, virtual event screen"
+  },
+  {
+    "category": "Lead Generation Campaign",
+    "objective": "Encourage prospects to download, book, assess, inquire, or start a consultation.",
+    "layout": "Problem-led headline, benefit subcopy, CTA, and checklist/report visual.",
+    "headlineExamples": [
+      "Is Your Business Ready For Automation?",
+      "Get A Free Digital Growth Assessment"
+    ],
+    "ctaSuggestions": [
+      "Get Free Assessment",
+      "Download the Checklist"
+    ],
+    "colors": ["#155EEF", "#FFFFFF", "#12B76A", "#101828"],
+    "imageStyle": "Checklist UI, analytics snapshot, growth chart"
+  }
+]
+

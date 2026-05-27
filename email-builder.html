@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kodexter Emailer Tool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/styles.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </head>
+  <body class="builder-body">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-lockup">
+          <img class="sidebar-logo" src="assets/kodexter-logo-official.png" alt="Kodexter Technologies Pvt. Ltd. official logo" onerror="this.remove(); document.querySelector('.brand-lockup').classList.add('logo-missing');">
+          <div class="logo-fallback">
+            <strong>Kodexter Technologies</strong>
+            <span>Logo unavailable</span>
+          </div>
+        </div>
+
+        <button class="new-campaign-btn" type="button" id="newCampaign">New Campaign</button>
+
+        <nav class="nav-list" aria-label="Template sections">
+          <a href="#campaign">Campaign</a>
+          <a href="#subject">Subject</a>
+          <a href="#content">Content</a>
+          <a href="#cta">CTA</a>
+          <a href="#gmail">Schedule Sending</a>
+          <a href="#review">Review</a>
+        </nav>
+
+        <section class="panel compact">
+          <h2>Campaign Type</h2>
+          <select id="campaignType">
+            <option>Lead Generation</option>
+            <option>Product Launch</option>
+            <option>AI & Automation</option>
+            <option>Software Development Services</option>
+            <option>Client Success</option>
+            <option>Webinar/Event Promotion</option>
+          </select>
+        </section>
+
+        <section class="panel compact">
+          <h2>Personalization</h2>
+          <div class="token-grid">
+            <button type="button" data-token="{{FirstName}}">Insert first name</button>
+            <button type="button" data-token="{{CompanyName}}">Insert company name</button>
+            <button type="button" data-token="{{Designation}}">Insert designation</button>
+          </div>
+        </section>
+
+        <section class="panel compact">
+          <h2>Banner Direction</h2>
+          <div class="banner-option-list" id="bannerOptions"></div>
+        </section>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Campaign builder</p>
+            <h2>Create branded customer emails</h2>
+          </div>
+          <div class="topbar-actions">
+            <a class="ghost nav-home-link" href="index.html">Home</a>
+            <button class="ghost" type="button" id="desktopPreview">Desktop</button>
+            <button class="ghost" type="button" id="mobilePreview">Mobile</button>
+            <button class="ghost" type="button" id="loadSample">Load Sample</button>
+            <button class="ghost danger" type="button" id="clearResetToggle" data-mode="clear">Clear</button>
+            <button class="primary" type="button" id="copyHtml">Copy HTML</button>
+          </div>
+        </header>
+
+        <div class="fixed-toolbar">
+          <section class="metric-strip" aria-label="Campaign quality overview">
+            <button type="button" class="metric-card" data-scroll-target="subject">
+              <span>Subject</span>
+              <strong id="subjectMetric">Ready</strong>
+              <small>Inbox-ready copy</small>
+            </button>
+            <button type="button" class="metric-card" data-scroll-target="content">
+              <span>Content</span>
+              <strong id="contentMetric">B2B</strong>
+              <small>Structured message</small>
+            </button>
+            <button type="button" class="metric-card" data-scroll-target="review">
+              <span>Review</span>
+              <strong id="reviewMetric">90%</strong>
+              <small>Brand quality</small>
+            </button>
+          </section>
+
+          <section class="panel block-library">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Quick blocks</p>
+                <h3>Reusable email sections</h3>
+              </div>
+            </div>
+            <div class="block-grid">
+              <button type="button" data-block="intro">Intro</button>
+              <button type="button" data-block="services">Services</button>
+              <button type="button" data-block="proof">Proof Point</button>
+              <button type="button" data-block="meeting">Meeting CTA</button>
+            </div>
+          </section>
+        </div>
+
+        <div class="scroll-workarea">
+          <div class="builder-grid">
+            <form class="editor" id="emailForm">
+            <section class="panel" id="campaign">
+              <div class="section-heading">
+                <p class="eyebrow">01</p>
+                <h3>Email Header</h3>
+              </div>
+              <label>
+                Campaign name
+                <input id="campaignName" value="Digital Growth Assessment" autocomplete="off">
+              </label>
+              <div class="two-col">
+                <label>
+                  Sender name
+                  <input id="senderName" value="Kodexter Growth Team" autocomplete="off">
+                </label>
+                <label>
+                  Sender designation/company
+                  <input id="senderIdentity" value="Kodexter Technologies Pvt. Ltd." autocomplete="off">
+                </label>
+              </div>
+              <div class="brand-asset-note">
+                <div>
+                  <strong>Official logo</strong>
+                  <p>Using the provided Kodexter Technologies logo from <code>assets/kodexter-logo-official.png</code>.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="panel" id="subject">
+              <div class="section-heading">
+                <p class="eyebrow">02</p>
+                <h3>Subject Line Studio</h3>
+              </div>
+              <label>
+                Subject line
+                <input id="subjectLine" value="Ready to simplify your business workflows?" autocomplete="off">
+              </label>
+              <div class="suggestion-row" id="subjectSuggestions"></div>
+              <label>
+                Preview text / preheader
+                <input id="preheader" value="Explore how Kodexter helps teams build, automate, and grow with scalable technology." autocomplete="off">
+              </label>
+              <div class="two-col">
+                <label>
+                  A/B variation A
+                  <input id="variantA" value="Build smarter systems for your business" autocomplete="off">
+                </label>
+                <label>
+                  A/B variation B
+                  <input id="variantB" value="Reduce manual work with practical automation" autocomplete="off">
+                </label>
+              </div>
+            </section>
+
+            <section class="panel" id="content">
+              <div class="section-heading">
+                <p class="eyebrow">03</p>
+                <h3>Email Body Builder</h3>
+              </div>
+              <label>
+                Banner headline
+                <input id="bannerHeadline" value="Turn Manual Workflows Into Scalable Digital Systems" autocomplete="off">
+              </label>
+              <label>
+                Human-focused banner image
+                <select id="bannerImage">
+                  <option value="lead">Consulting team</option>
+                  <option value="automation">Automation workshop</option>
+                  <option value="development">Development team</option>
+                  <option value="success">Client success meeting</option>
+                  <option value="webinar">Webinar speaker</option>
+                  <option value="launch">Product launch team</option>
+                </select>
+              </label>
+              <label>
+                Main heading
+                <input id="mainHeading" value="Build smarter technology foundations for your business" autocomplete="off">
+              </label>
+              <div class="three-col">
+                <label>
+                  Tone
+                  <select id="emailTone">
+                    <option value="consultative">Consultative</option>
+                    <option value="executive">Executive</option>
+                    <option value="concise">Concise</option>
+                    <option value="warm">Warm</option>
+                  </select>
+                </label>
+                <label>
+                  Industry
+                  <select id="emailIndustry">
+                    <option value="technology">Technology</option>
+                    <option value="healthcare">Healthcare</option>
+                    <option value="retail">Retail</option>
+                    <option value="finance">Finance</option>
+                    <option value="education">Education</option>
+                    <option value="manufacturing">Manufacturing</option>
+                  </select>
+                </label>
+                <label>
+                  Use case
+                  <select id="emailUseCase">
+                    <option value="automation">Workflow automation</option>
+                    <option value="lead">Lead generation</option>
+                    <option value="launch">Product launch</option>
+                    <option value="reengagement">Customer re-engagement</option>
+                  </select>
+                </label>
+              </div>
+              <button class="ghost full-width" type="button" id="optimizeBody">Optimize Body</button>
+              <label>
+                Body copy
+                <textarea id="bodyCopy" rows="8">Hi Priya,
+
+Many growing teams lose time managing disconnected tools, manual workflows, and delayed reporting.
+
+Kodexter helps businesses design and build scalable software systems, automation workflows, and digital platforms that improve speed, visibility, and customer engagement.</textarea>
+              </label>
+              <label>
+                Bullet points
+                <textarea id="bullets" rows="4">Custom web and software development
+Workflow automation
+AI-enabled business tools
+Digital marketing and lead engagement systems</textarea>
+              </label>
+            </section>
+
+            <section class="panel" id="cta">
+              <div class="section-heading">
+                <p class="eyebrow">04</p>
+                <h3>Call To Action</h3>
+              </div>
+              <div class="two-col">
+                <label>
+                  Primary CTA text
+                  <input id="primaryCta" value="Book a Consultation" autocomplete="off">
+                </label>
+                <label>
+                  Primary CTA URL
+                  <input id="primaryUrl" value="https://kodexter.example.com/contact" autocomplete="off">
+                </label>
+              </div>
+              <div class="two-col">
+                <label>
+                  Secondary CTA text
+                  <input id="secondaryCta" value="View Our Services" autocomplete="off">
+                </label>
+                <label>
+                  Button alignment
+                  <select id="ctaAlign">
+                    <option value="left">Left</option>
+                    <option value="center">Center</option>
+                    <option value="right">Right</option>
+                  </select>
+                </label>
+              </div>
+            </section>
+
+            <section class="panel" id="gmail">
+              <div class="section-heading">
+                <p class="eyebrow">05</p>
+                <h3>Send Email <small>via gmail</small></h3>
+              </div>
+              <div class="two-col">
+                <label>
+                  Recipient emails
+                  <textarea id="gmailTo" rows="3" placeholder="name@example.com, team@example.com" autocomplete="off"></textarea>
+                </label>
+                <label>
+                  Reply-to emails
+                  <textarea id="gmailReplyTo" rows="3" placeholder="optional" autocomplete="off"></textarea>
+                </label>
+              </div>
+              <label>
+                Schedule time
+                <input id="gmailScheduleAt" type="datetime-local">
+              </label>
+              <div class="gmail-actions">
+                <button class="ghost" type="button" id="connectGmail">Connect Gmail</button>
+                <button class="primary" type="button" id="sendGmail">Send Now</button>
+                <button class="ghost" type="button" id="scheduleGmail">Schedule</button>
+                <button class="ghost danger" type="button" id="cancelSchedule" hidden>Cancel Schedule</button>
+                <span id="gmailStatus">Not connected</span>
+              </div>
+            </section>
+
+            </form>
+
+            <aside class="preview-column">
+              <section class="panel" id="review">
+              <div class="section-heading">
+                <p class="eyebrow">Quality checks</p>
+                <h3>Correction Engine</h3>
+              </div>
+              <div class="score-grid">
+                <div>
+                  <span id="clarityScore">92</span>
+                  <p>Clarity</p>
+                </div>
+                <div>
+                  <span id="brandScore">88</span>
+                  <p>Brand</p>
+                </div>
+                <div>
+                  <span id="ctaScore">90</span>
+                  <p>CTA</p>
+                </div>
+              </div>
+              <ul class="review-list" id="reviewList"></ul>
+              </section>
+
+              <section class="panel preview-panel">
+              <div class="section-heading">
+                <p class="eyebrow">Live preview</p>
+                <h3>Email Canvas</h3>
+              </div>
+              <div class="email-preview" id="emailPreview"></div>
+              </section>
+            </aside>
+          </div>
+          <button class="scroll-top-button" type="button" id="scrollTopButton" aria-label="Scroll editor to top">↑</button>
+        </div>
+      </main>
+    </div>
+
+    <script src="src/app.js"></script>
+  </body>
+</html>

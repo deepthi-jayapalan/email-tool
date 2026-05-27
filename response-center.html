@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Response Center | Kodexter Emailer Tool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/styles.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </head>
+  <body>
+    <div class="app-shell response-shell">
+      <aside class="sidebar">
+        <div class="brand-lockup">
+          <img class="sidebar-logo" src="assets/kodexter-logo-official.png" alt="Kodexter Technologies Pvt. Ltd. official logo" onerror="this.remove(); document.querySelector('.brand-lockup').classList.add('logo-missing');">
+          <div class="logo-fallback">
+            <strong>Kodexter Technologies</strong>
+            <span>Logo unavailable</span>
+          </div>
+        </div>
+
+        <button class="new-campaign-btn" type="button" id="backToBuilder">Email Builder</button>
+
+        <nav class="nav-list" aria-label="Response Center sections">
+          <a href="#replyInbox" class="is-active">Unread Replies</a>
+          <a href="#assistantPanel">Assistant</a>
+          <a href="#governancePanel">Governance</a>
+        </nav>
+
+        <section class="panel compact">
+          <h2>Inbox Filter</h2>
+          <select id="replyFilter">
+            <option value="replies">Unread replies only</option>
+            <option value="all">All unread inbox emails</option>
+          </select>
+        </section>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Response Center</p>
+            <h2>Smart Reply Assistant</h2>
+          </div>
+          <div class="topbar-actions">
+            <a class="ghost nav-home-link" href="index.html">Home</a>
+            <button class="ghost" type="button" id="connectReplyGmail">Connect Gmail</button>
+            <button class="primary" type="button" id="loadUnreadReplies">Load Unread Replies</button>
+            <span id="replyInboxStatus">Not connected</span>
+          </div>
+        </header>
+
+        <div class="scroll-workarea response-workarea">
+          <div class="response-page-grid">
+            <section class="panel" id="replyInbox">
+              <div class="section-heading">
+                <p class="eyebrow">Inbox</p>
+                <h3>Unread Client Replies</h3>
+              </div>
+              <div id="unreadReplyList" class="reply-thread-list">
+                <p class="empty-note">Connect Gmail and load unread replies.</p>
+              </div>
+            </section>
+
+            <section class="panel" id="assistantPanel">
+              <div class="section-heading">
+                <p class="eyebrow">AI assistant</p>
+                <h3>Contextual Reply Drafts</h3>
+              </div>
+              <div class="three-col">
+                <label>
+                  Reply style
+                  <select id="replyStyle">
+                    <option value="professional">Professional</option>
+                    <option value="technical">Technical</option>
+                    <option value="executive">Executive</option>
+                    <option value="sales">Sales-oriented</option>
+                  </select>
+                </label>
+                <label>
+                  Language
+                  <select id="replyLanguage">
+                    <option>English</option>
+                    <option>Hindi</option>
+                    <option>Spanish</option>
+                    <option>French</option>
+                    <option>German</option>
+                  </select>
+                </label>
+                <label>
+                  Confidence threshold
+                  <input id="replyConfidence" type="number" min="50" max="100" value="80">
+                </label>
+              </div>
+              <div class="two-col">
+                <label>
+                  Customer profile / CRM context
+                  <textarea id="customerContext" rows="5" placeholder="Company, role, lifecycle stage, owner, deal value, prior interactions"></textarea>
+                </label>
+                <label>
+                  Thread history / knowledge notes
+                  <textarea id="threadContext" rows="5" placeholder="Previous replies, pricing notes, proposal status, architecture or support details"></textarea>
+                </label>
+              </div>
+              <label>
+                Incoming client reply
+                <textarea id="incomingReply" rows="7" placeholder="Select an unread reply or paste the client reply here"></textarea>
+              </label>
+              <div class="gmail-actions">
+                <button class="primary" type="button" id="analyzeReply">Analyze Reply</button>
+                <button class="ghost" type="button" id="copyReplyDraft">Copy Selected Draft</button>
+                <button class="ghost" type="button" id="approveReplyDraft">Approve Draft</button>
+                <button class="primary" type="button" id="sendApprovedReply" hidden>Send Reply</button>
+                <label class="inline-check">
+                  <input id="autoReplyLowRisk" type="checkbox">
+                  Auto-response for low-risk replies
+                </label>
+                <span id="replyAssistantStatus">Awaiting reply</span>
+              </div>
+              <div class="response-grid">
+                <div class="response-card">
+                  <span>Intent</span>
+                  <strong id="replyIntent">-</strong>
+                  <small id="replyIntentDetail">Select or paste a reply.</small>
+                </div>
+                <div class="response-card">
+                  <span>Sentiment</span>
+                  <strong id="replySentiment">-</strong>
+                  <small id="replySentimentDetail">Signals will appear here.</small>
+                </div>
+                <div class="response-card">
+                  <span>Urgency</span>
+                  <strong id="replyUrgency">-</strong>
+                  <small id="replyUrgencyDetail">Timeline and escalation cues.</small>
+                </div>
+                <div class="response-card">
+                  <span>Score</span>
+                  <strong id="replyScore">-</strong>
+                  <small id="replyScoreDetail">Buying signal confidence.</small>
+                </div>
+              </div>
+              <div class="two-col response-output">
+                <section>
+                  <h4>Conversation Summary</h4>
+                  <p id="replySummary">No analysis yet.</p>
+                  <h4>Recommended Next Actions</h4>
+                  <ul id="replyActions"></ul>
+                </section>
+                <section>
+                  <h4>Generated Reply Drafts</h4>
+                  <div id="replyDrafts" class="draft-list"></div>
+                  <label class="reply-editor" id="replyDraftEditorWrap" hidden>
+                    Edit selected draft
+                    <textarea id="replyDraftEditor" rows="8" placeholder="Select or generate a draft to edit before sending."></textarea>
+                  </label>
+                </section>
+              </div>
+            </section>
+
+            <section class="panel" id="governancePanel">
+              <div class="section-heading">
+                <p class="eyebrow">Governance</p>
+                <h3>Workflow Controls</h3>
+              </div>
+              <div class="response-grid">
+                <div class="response-card">
+                  <span>Isolation</span>
+                  <strong>Tenant</strong>
+                  <small>Use separate OAuth projects and data stores per tenant in production.</small>
+                </div>
+                <div class="response-card">
+                  <span>Access</span>
+                  <strong>RBAC</strong>
+                  <small>Restrict approval, auto-send, and CRM sync by user role.</small>
+                </div>
+                <div class="response-card">
+                  <span>Audit</span>
+                  <strong>Logged</strong>
+                  <small>Generated and approved drafts are stored in local audit history.</small>
+                </div>
+                <div class="response-card">
+                  <span>RAG</span>
+                  <strong>Ready</strong>
+                  <small>Knowledge notes field simulates proposal, pricing, and architecture retrieval.</small>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="src/response-center.js"></script>
+  </body>
+</html>
