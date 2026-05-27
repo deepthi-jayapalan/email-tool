@@ -305,6 +305,10 @@ function parseEnvValue(envText, key) {
   return match[1].trim().replace(/^['"]|['"]$/g, '');
 }
 
+function publicConfigValue(key) {
+  return window.EMAIL_TOOL_CONFIG?.[key]?.trim() || '';
+}
+
 function isLikelyGoogleClientId(clientId) {
   return /^\d+-[a-z0-9_-]+\.apps\.googleusercontent\.com$/i.test(clientId);
 }
@@ -769,15 +773,18 @@ function setGmailStatus(message, type = '') {
 
 async function loadEnvConfig(options = {}) {
   try {
-    const response = await fetch('.env', { cache: 'no-store' });
+    let nextClientId = publicConfigValue('GMAIL_CLIENT_ID');
 
-    if (!response.ok) {
-      setGmailStatus('Gmail config missing', 'error');
-      return false;
+    if (!nextClientId) {
+      const response = await fetch('.env', { cache: 'no-store' });
+
+      if (!response.ok) {
+        setGmailStatus('Gmail config missing', 'error');
+        return false;
+      }
+
+      nextClientId = parseEnvValue(await response.text(), 'GMAIL_CLIENT_ID');
     }
-
-    const envText = await response.text();
-    const nextClientId = parseEnvValue(envText, 'GMAIL_CLIENT_ID');
 
     if (!nextClientId) {
       setGmailStatus('Gmail config missing', 'error');

@@ -57,15 +57,25 @@ function parseEnvValue(envText, key) {
   return match ? match[1].trim().replace(/^['"]|['"]$/g, '') : '';
 }
 
-async function loadEnvConfig() {
-  const response = await fetch('.env', { cache: 'no-store' });
+function publicConfigValue(key) {
+  return window.EMAIL_TOOL_CONFIG?.[key]?.trim() || '';
+}
 
-  if (!response.ok) {
-    setInboxStatus('Gmail config missing', 'error');
-    return false;
+async function loadEnvConfig() {
+  let nextClientId = publicConfigValue('GMAIL_CLIENT_ID');
+
+  if (!nextClientId) {
+    const response = await fetch('.env', { cache: 'no-store' });
+
+    if (!response.ok) {
+      setInboxStatus('Gmail config missing', 'error');
+      return false;
+    }
+
+    nextClientId = parseEnvValue(await response.text(), 'GMAIL_CLIENT_ID');
   }
 
-  replyClientId = parseEnvValue(await response.text(), 'GMAIL_CLIENT_ID');
+  replyClientId = nextClientId;
 
   if (!/^\d+-[a-z0-9_-]+\.apps\.googleusercontent\.com$/i.test(replyClientId)) {
     setInboxStatus('Gmail client ID missing', 'error');

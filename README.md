@@ -30,9 +30,18 @@ The Gmail send panel needs a Google OAuth client ID that was created as a **Web 
 
 ```text
 http://localhost:5173
+https://YOUR-VERCEL-DOMAIN.vercel.app
 ```
 
-5. Copy the generated client ID into `.env`:
+5. Copy the generated client ID into `config.js` for deployed static hosting:
+
+```js
+window.EMAIL_TOOL_CONFIG = {
+  GMAIL_CLIENT_ID: 'YOUR_WEB_APPLICATION_CLIENT_ID.apps.googleusercontent.com'
+};
+```
+
+For local-only testing, `.env` is also supported as a fallback:
 
 ```text
 GMAIL_CLIENT_ID=YOUR_WEB_APPLICATION_CLIENT_ID.apps.googleusercontent.com
