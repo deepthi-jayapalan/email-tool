@@ -3,13 +3,13 @@ let replyAccessToken = '';
 let replyClientId = '';
 let unreadReplyThreads = [];
 let selectedReplyThread = null;
-let selectedReplyDraft = 0;
+let selectedReplyDraft = null;
 let replyDraftOptions = [];
 let approvedReplyDraft = null;
 let pendingSendApprovedReply = false;
 
 const previewContact = {
-  FirstName: 'Priya',
+  FirstName: '(name)',
   CompanyName: 'Acme Digital',
   Designation: 'Operations Director'
 };
@@ -206,6 +206,28 @@ function emailAddressFromHeader(header) {
   return header.match(/[^\s<>@,;]+@[^\s<>@,;]+\.[^\s<>@,;]+/)?.[0] || '';
 }
 
+function senderNameFromHeader(header = '') {
+  const bracketIndex = header.indexOf('<');
+  const displayName = bracketIndex > -1 ? header.slice(0, bracketIndex).trim() : '';
+  const cleanedName = displayName.replace(/^["']|["']$/g, '').trim();
+
+  if (cleanedName) {
+    return cleanedName;
+  }
+
+  const email = emailAddressFromHeader(header);
+  return email ? email.split('@')[0].replace(/[._-]+/g, ' ') : '';
+}
+
+function currentReplySenderName() {
+  if (selectedReplyThread?.from) {
+    return senderNameFromHeader(selectedReplyThread.from) || 'there';
+  }
+
+  const senderLine = value('customerContext').match(/^Sender:\s*(.+)$/im)?.[1] || '';
+  return senderNameFromHeader(senderLine) || 'there';
+}
+
 function replySubject(subject) {
   return /^re:/i.test(subject) ? subject : `Re: ${subject || 'Your message'}`;
 }
@@ -304,6 +326,7 @@ function buildReplyDrafts(analysis, actions) {
   const threadContext = value('threadContext') || 'No additional knowledge notes provided.';
   const closing = languageClosings[language] || languageClosings.English;
   const nextAction = actions[0] || 'send a useful next step';
+  const senderName = currentReplySenderName();
   const styleLine = {
     professional: 'Thanks for getting back to us. Based on your note, it sounds like the next useful step is to align on the business context and share the most relevant details.',
     technical: 'Thanks for the context. From a technical standpoint, we can map the workflow, integration points, data flow, and implementation considerations before recommending the right approach.',
@@ -315,7 +338,7 @@ function buildReplyDrafts(analysis, actions) {
     {
       title: `${style[0].toUpperCase()}${style.slice(1)} reply`,
       confidence: analysis.score,
-      text: `Hi {{FirstName}},
+      text: `Hi ${senderName},
 
 ${styleLine}
 
@@ -324,24 +347,24 @@ I can ${nextAction.toLowerCase()} and tailor it to your current priorities.
 Context I am using: ${customerContext}
 
 ${closing},
-Kodexter Growth Team`
+Pryvax Growth Team`
     },
     {
       title: 'Concise follow-up',
       confidence: Math.max(50, analysis.score - 8),
-      text: `Hi {{FirstName}},
+      text: `Hi ${senderName},
 
 Thanks for the reply. I reviewed your note and the best next step is to ${nextAction.toLowerCase()}.
 
 I can include the relevant background so the response stays specific to your team.
 
 ${closing},
-Kodexter Growth Team`
+Pryvax Growth Team`
     },
     {
       title: 'Context-rich response',
       confidence: Math.max(50, analysis.score - 4),
-      text: `Hi {{FirstName}},
+      text: `Hi ${senderName},
 
 Thanks for sharing this. I understand the current intent as ${analysis.intent.toLowerCase()}.
 
@@ -350,7 +373,7 @@ Based on the thread and available context, I recommend we ${nextAction.toLowerCa
 Reference context: ${threadContext.slice(0, 240)}
 
 ${closing},
-Kodexter Growth Team`
+Pryvax Growth Team`
     }
   ];
 }
@@ -363,15 +386,17 @@ function logAssistantEvent(type, payload = {}) {
 
 function renderReplyDrafts() {
   document.getElementById('replyDrafts').innerHTML = replyDraftOptions
-    .map((draft, index) => `
-      <article class="draft-card${index === selectedReplyDraft ? ' is-selected' : ''}">
-        <button type="button" data-draft-index="${index}">
+    .map((draft, index) => {
+      const isSelected = index === selectedReplyDraft;
+      return `
+      <article class="draft-card${isSelected ? ' is-selected' : ''}">
+        <button type="button" data-draft-index="${index}" aria-expanded="${isSelected ? 'true' : 'false'}">
           <strong>${escapeHtml(draft.title)}</strong>
-          <p>${escapeHtml(personalize(draft.text))}</p>
-          <small>${draft.confidence}% confidence</small>
+          ${isSelected ? `<p>${escapeHtml(personalize(draft.text))}</p><small>${draft.confidence}% confidence</small>` : ''}
         </button>
       </article>
-    `)
+    `;
+    })
     .join('');
 
   const editorWrap = document.getElementById('replyDraftEditorWrap');
@@ -396,7 +421,7 @@ function analyzeIncomingReply() {
   const analysis = analyzeReplyText(reply);
   const actions = buildNextActions(analysis);
   replyDraftOptions = buildReplyDrafts(analysis, actions);
-  selectedReplyDraft = 0;
+  selectedReplyDraft = null;
   approvedReplyDraft = null;
   document.getElementById('replyDraftEditor').value = '';
   document.getElementById('sendApprovedReply').hidden = true;
@@ -669,12 +694,24 @@ document.getElementById('replyDrafts').addEventListener('click', (event) => {
     return;
   }
 
-  selectedReplyDraft = Number(button.datasetDraftIndex || button.dataset.draftIndex);
+  selectedReplyDraft = Number(button.dataset.draftIndex);
   approvedReplyDraft = null;
   document.getElementById('sendApprovedReply').hidden = true;
   document.getElementById('replyDraftEditor').value = personalize(replyDraftOptions[selectedReplyDraft].text);
   renderReplyDrafts();
 });
+
+const responseScrollArea = document.querySelector('.response-workarea');
+const responseScrollTopButton = document.getElementById('responseScrollTopButton');
+const updateResponseScrollTopButton = () => {
+  responseScrollTopButton.hidden = responseScrollArea.scrollTop < 120;
+};
+
+responseScrollTopButton.addEventListener('click', () => {
+  responseScrollArea.scrollTo({ top: 0, behavior: 'smooth' });
+});
+responseScrollArea.addEventListener('scroll', updateResponseScrollTopButton);
+updateResponseScrollTopButton();
 
 let replyAnalysisDebounce = null;
 document.getElementById('incomingReply').addEventListener('input', () => {

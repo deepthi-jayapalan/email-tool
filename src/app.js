@@ -25,50 +25,62 @@ const bannerPresets = {
   lead: {
     label: 'Lead generation',
     type: 'Lead Generation',
+    campaignName: 'Lead Generation Campaign',
     image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80',
     headline: 'Find The Gaps In Your Digital Workflow',
     heading: 'Get a practical growth assessment for your business',
-    cta: 'Get Free Assessment'
+    cta: 'Get Free Assessment',
+    preheader: 'Find practical ways to improve lead flow, follow-ups, and digital growth.'
   },
   automation: {
     label: 'AI automation',
     type: 'AI & Automation',
+    campaignName: 'AI Automation Discovery Campaign',
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80',
     headline: 'Automate Workflows. Accelerate Growth.',
     heading: 'Practical automation planning for growing teams',
-    cta: 'Start an Automation Assessment'
+    cta: 'Start an Automation Assessment',
+    preheader: 'See practical AI and automation opportunities for your business.'
   },
   development: {
     label: 'Development',
     type: 'Software Development Services',
+    campaignName: 'Software Development Services Campaign',
     image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80',
     headline: 'Build Reliable Software Around Your Workflow',
     heading: 'Custom software designed for scale and clarity',
-    cta: 'Discuss Your Project'
+    cta: 'Discuss Your Project',
+    preheader: 'Explore custom software support for clearer workflows and scalable systems.'
   },
   success: {
     label: 'Client success',
     type: 'Client Success',
+    campaignName: 'Client Success Campaign',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80',
     headline: 'Better Digital Systems. Stronger Business Outcomes.',
     heading: 'Help your team move faster with connected systems',
-    cta: 'Read the Case Study'
+    cta: 'Read the Case Study',
+    preheader: 'See how better digital systems can support stronger business outcomes.'
   },
   webinar: {
     label: 'Webinar',
     type: 'Webinar/Event Promotion',
+    campaignName: 'Webinar Promotion Campaign',
     image: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=900&q=80',
     headline: 'Live Webinar: Digital Workflows For Growing Teams',
     heading: 'Join a practical session on software and automation strategy',
-    cta: 'Register Now'
+    cta: 'Register Now',
+    preheader: 'Reserve your seat for a practical session on smarter digital workflows.'
   },
   launch: {
     label: 'Product launch',
     type: 'Product Launch',
+    campaignName: 'Product Launch Campaign',
     image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=900&q=80',
     headline: 'Launch Smarter Digital Products',
-    heading: 'Move from idea to scalable platform with Kodexter',
-    cta: 'Explore the Solution'
+    heading: 'Move from idea to scalable platform with Pryvax',
+    cta: 'Explore the Solution',
+    preheader: 'Build momentum with cleaner launch workflows and customer communication.'
   }
 };
 
@@ -90,7 +102,7 @@ const subjectSuggestions = {
     'Take your idea to market',
     'Launch with better workflows',
     'Move from plan to platform',
-    'See what is new from Kodexter',
+    'See what is new from Pryvax',
     'Scale your next product launch'
   ],
   'AI & Automation': [
@@ -129,43 +141,43 @@ const subjectSuggestions = {
     'AI automation for growing teams',
     'Live: simplify manual workflows',
     'Learn practical automation steps',
-    'Save your spot with Kodexter',
+    'Save your spot with Pryvax',
     'A tech growth session for teams',
     'Bring better systems to work'
   ]
 };
 
 const previewContact = {
-  FirstName: 'Priya',
+  FirstName: '(name)',
   CompanyName: 'Acme Digital',
   Designation: 'Operations Director',
   Industry: 'Technology Services',
   PainPoint: 'manual reporting',
-  MeetingLink: 'https://kodexter.example.com/meeting',
+  MeetingLink: 'https://pryvax.example.com/meeting',
   ServiceInterest: 'AI automation'
 };
 
 const samples = {
   campaignName: 'AI Automation Discovery Campaign',
-  senderName: 'Kodexter Growth Team',
-  senderIdentity: 'Kodexter Technologies Pvt. Ltd.',
+  senderName: 'Pryvax Growth Team',
+  senderIdentity: 'Pryvax Ltd.',
   subjectLine: 'Automate the work slowing your team down',
   preheader: 'See practical AI and automation opportunities for your business.',
   variantA: 'Reduce manual effort with intelligent workflows',
   variantB: 'A practical automation review for your team',
   bannerHeadline: 'Automate Workflows. Accelerate Growth.',
   mainHeading: 'Practical AI automation for growing teams',
-  bodyCopy: `Hi Priya,
+  bodyCopy: `Hi (name),
 
 Many teams at growing companies spend valuable hours on repeated tasks, disconnected tools, and manual reporting.
 
-Kodexter helps businesses identify automation opportunities and build reliable digital workflows that improve speed, accuracy, and customer engagement.`,
+Pryvax helps businesses identify automation opportunities and build reliable digital workflows that improve speed, accuracy, and customer engagement.`,
   bullets: `Workflow automation planning
 AI-enabled business tools
 CRM and marketing automation support
 Custom dashboards and reporting systems`,
   primaryCta: 'Start an Automation Assessment',
-  primaryUrl: 'https://kodexter.example.com/automation-assessment',
+  primaryUrl: 'https://pryvax.example.com/automation-assessment',
   secondaryCta: 'Explore AI Use Cases',
   ctaAlign: 'left',
   bannerImage: 'automation',
@@ -177,25 +189,25 @@ Custom dashboards and reporting systems`,
 
 const defaults = {
   campaignName: 'Digital Growth Assessment',
-  senderName: 'Kodexter Growth Team',
-  senderIdentity: 'Kodexter Technologies Pvt. Ltd.',
+  senderName: 'Pryvax Growth Team',
+  senderIdentity: 'Pryvax Ltd.',
   subjectLine: 'Ready to simplify your business workflows?',
-  preheader: 'Explore how Kodexter helps teams build, automate, and grow with scalable technology.',
+  preheader: 'Explore how Pryvax helps teams build, automate, and grow with scalable technology.',
   variantA: 'Build smarter systems for your business',
   variantB: 'Reduce manual work with practical automation',
   bannerHeadline: 'Turn Manual Workflows Into Scalable Digital Systems',
   mainHeading: 'Build smarter technology foundations for your business',
-  bodyCopy: `Hi Priya,
+  bodyCopy: `Hi (name),
 
 Many growing teams lose time managing disconnected tools, manual workflows, and delayed reporting.
 
-Kodexter helps businesses design and build scalable software systems, automation workflows, and digital platforms that improve speed, visibility, and customer engagement.`,
+Pryvax helps businesses design and build scalable software systems, automation workflows, and digital platforms that improve speed, visibility, and customer engagement.`,
   bullets: `Custom web and software development
 Workflow automation
 AI-enabled business tools
 Digital marketing and lead engagement systems`,
   primaryCta: 'Book a Consultation',
-  primaryUrl: 'https://kodexter.example.com/contact',
+  primaryUrl: 'https://pryvax.example.com/contact',
   secondaryCta: 'View Our Services',
   ctaAlign: 'left',
   bannerImage: 'lead',
@@ -206,10 +218,10 @@ Digital marketing and lead engagement systems`,
 };
 
 const quickBlocks = {
-  intro: `Hi Priya,
+  intro: `Hi (name),
 
 Many growing teams lose time managing disconnected tools, manual workflows, and delayed reporting.`,
-  services: `Kodexter can support your team with custom software development, workflow automation, AI-enabled business tools, and customer engagement systems.`,
+  services: `Pryvax can support your team with custom software development, workflow automation, AI-enabled business tools, and customer engagement systems.`,
   proof: `Our approach focuses on practical technology decisions, clean implementation, and measurable business outcomes for growing teams.`,
   meeting: `If this is a priority for your team, we can schedule a short discovery call and map the next best steps.`
 };
@@ -370,8 +382,8 @@ function optimizeBodyCopy() {
   const opener = toneOpeners[tone] || toneOpeners.consultative;
   const companyReference = tone === 'concise' ? '{{CompanyName}}' : `{{CompanyName}} in ${industry.label}`;
   const proofLine = tone === 'executive'
-    ? `Kodexter helps leadership teams prioritize ${useCase.focus} initiatives that connect directly to efficiency, visibility, and growth.`
-    : `Kodexter helps businesses ${useCase.service} so teams can move with more clarity and less manual effort.`;
+    ? `Pryvax helps leadership teams prioritize ${useCase.focus} initiatives that connect directly to efficiency, visibility, and growth.`
+    : `Pryvax helps businesses ${useCase.service} so teams can move with more clarity and less manual effort.`;
   const closingLine = tone === 'warm'
     ? `If this feels relevant, we would be happy to share a practical starting point and ${useCase.cta}.`
     : `If this is a priority, we can ${useCase.cta} for your team.`;
@@ -660,13 +672,13 @@ function buildEmailHtml(options = {}) {
   const align = value('ctaAlign');
   const preset = bannerPresets[value('bannerImage')] || bannerPresets.lead;
   const logoSrc = options.absoluteAssets
-    ? new URL('assets/kodexter-logo-official.png', window.location.href).href
-    : 'assets/kodexter-logo-official.png';
+    ? new URL('assets/pryvax-logo-official.png', window.location.href).href
+    : 'assets/pryvax-logo-official.png';
 
   return `
     <article class="email-card">
       <header class="email-header">
-        <img class="email-logo-img" src="${escapeHtml(logoSrc)}" alt="Kodexter Technologies Pvt. Ltd. official logo" onerror="this.remove()">
+        <img class="email-logo-img" src="${escapeHtml(logoSrc)}" alt="Pryvax Ltd. official logo" onerror="this.remove()">
         <div class="email-meta">
           <strong>${escapeHtml(value('campaignName'))}</strong><br>
           ${escapeHtml(value('senderName'))}<br>
@@ -690,7 +702,7 @@ function buildEmailHtml(options = {}) {
         </div>
       </section>
       <footer class="email-footer">
-        Kodexter Technologies Pvt. Ltd. | You are receiving this email because you connected with Kodexter.
+        Pryvax Ltd. | You are receiving this email because you connected with Pryvax.
       </footer>
     </article>
   `;
@@ -698,7 +710,7 @@ function buildEmailHtml(options = {}) {
 
 function buildExportHtml(options = {}) {
   const preset = bannerPresets[value('bannerImage')] || bannerPresets.lead;
-  const logoSrc = options.logoSrc || new URL('assets/kodexter-logo-official.png', window.location.href).href;
+  const logoSrc = options.logoSrc || new URL('assets/pryvax-logo-official.png', window.location.href).href;
 
   return `<!doctype html>
 <html lang="en">
@@ -718,7 +730,7 @@ function buildExportHtml(options = {}) {
                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                   <tr>
                     <td align="left" valign="middle" style="width:190px;">
-                      <img src="${escapeHtml(logoSrc)}" width="160" alt="Kodexter Technologies Pvt. Ltd." style="display:block;width:160px;max-width:160px;height:auto;border:0;outline:none;text-decoration:none;">
+                      <img src="${escapeHtml(logoSrc)}" width="120" alt="Pryvax Ltd." style="display:block;width:120px;max-width:120px;height:auto;border:0;outline:none;text-decoration:none;">
                     </td>
                     <td align="right" valign="middle" style="font-size:12px;color:#66758a;line-height:1.45;">
                       <strong style="color:#344054;">${escapeHtml(value('campaignName'))}</strong><br>
@@ -754,7 +766,7 @@ function buildExportHtml(options = {}) {
             </tr>
             <tr>
               <td style="padding:16px 22px;border-top:1px solid #d6ede3;color:#66758a;font-size:12px;line-height:1.5;">
-                Kodexter Technologies Pvt. Ltd. | You are receiving this email because you connected with Kodexter.
+                Pryvax Ltd. | You are receiving this email because you connected with Pryvax.
               </td>
             </tr>
           </table>
@@ -842,7 +854,7 @@ function wrapBase64(text) {
 }
 
 async function loadInlineLogo() {
-  const response = await fetch('assets/kodexter-logo-official.png', { cache: 'no-store' });
+  const response = await fetch('assets/pryvax-logo-official.png', { cache: 'no-store' });
 
   if (!response.ok) {
     throw new Error('Logo asset unavailable');
@@ -855,8 +867,8 @@ async function buildMimeMessage() {
   const recipients = parseEmailList(value('gmailTo'));
   const replyTo = parseEmailList(value('gmailReplyTo'));
   const subject = value('subjectLine') || value('campaignName');
-  const boundary = `kodexter_related_${Date.now()}`;
-  const logoContentId = 'kodexter-logo-official';
+  const boundary = `pryvax_related_${Date.now()}`;
+  const logoContentId = 'pryvax-logo-official';
   const html = buildExportHtml({ logoSrc: `cid:${logoContentId}` });
   const logoBase64 = await loadInlineLogo();
   const headers = [
@@ -875,10 +887,10 @@ async function buildMimeMessage() {
     'Content-Type: text/html; charset=UTF-8\r\n\r\n' +
     `${html}\r\n\r\n` +
     `--${boundary}\r\n` +
-    'Content-Type: image/png; name="kodexter-logo-official.png"\r\n' +
+    'Content-Type: image/png; name="pryvax-logo-official.png"\r\n' +
     'Content-Transfer-Encoding: base64\r\n' +
     `Content-ID: <${logoContentId}>\r\n` +
-    'Content-Disposition: inline; filename="kodexter-logo-official.png"\r\n\r\n' +
+    'Content-Disposition: inline; filename="pryvax-logo-official.png"\r\n\r\n' +
     `${wrapBase64(logoBase64)}\r\n` +
     `--${boundary}--`;
 }
@@ -1114,6 +1126,29 @@ function render() {
   reviewEmail();
 }
 
+function applyCampaignPreset(key) {
+  const preset = bannerPresets[key];
+
+  if (!preset) {
+    return;
+  }
+
+  document.getElementById('bannerImage').value = key;
+  document.getElementById('campaignType').value = preset.type;
+  document.getElementById('campaignName').value = preset.campaignName;
+  document.getElementById('bannerHeadline').value = preset.headline;
+  document.getElementById('mainHeading').value = preset.heading;
+  document.getElementById('primaryCta').value = preset.cta;
+  document.getElementById('preheader').value = preset.preheader;
+
+  const suggestions = subjectSuggestions[preset.type] || [];
+  if (suggestions.length) {
+    document.getElementById('subjectLine').value = suggestions[0];
+    document.getElementById('variantA').value = suggestions[1] || suggestions[0];
+    document.getElementById('variantB').value = suggestions[2] || suggestions[0];
+  }
+}
+
 function addClearButtons() {
   document.querySelectorAll('input, textarea').forEach((field) => {
     if (field.closest('.clearable-field') || ['checkbox', 'radio', 'hidden'].includes(field.type)) {
@@ -1151,9 +1186,21 @@ fields.forEach((id) => {
   }
 });
 
-document.querySelectorAll('.nav-list a').forEach((link) => {
-  link.addEventListener('click', () => {
-    document.querySelectorAll('.nav-list a').forEach((item) => item.classList.remove('is-active'));
+const newCampaignButton = document.getElementById('newCampaign');
+const newCampaignMenu = document.getElementById('newCampaignMenu');
+
+document.querySelectorAll('.nav-list a, .nav-list button').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const targetId = link.getAttribute('href')?.slice(1);
+
+    if (targetId && document.getElementById(targetId)) {
+      event.preventDefault();
+      newCampaignMenu.hidden = false;
+      newCampaignButton.setAttribute('aria-expanded', 'true');
+      document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    document.querySelectorAll('.nav-list a, .nav-list button').forEach((item) => item.classList.remove('is-active'));
     link.classList.add('is-active');
   });
 });
@@ -1175,7 +1222,9 @@ document.querySelectorAll('[data-block]').forEach((button) => {
   });
 });
 
-document.getElementById('newCampaign').addEventListener('click', () => {
+newCampaignButton.addEventListener('click', () => {
+  newCampaignMenu.hidden = false;
+  newCampaignButton.setAttribute('aria-expanded', 'true');
   Object.entries(defaults).forEach(([id, nextValue]) => {
     document.getElementById(id).value = nextValue;
   });
@@ -1223,9 +1272,17 @@ document.getElementById('mobilePreview').addEventListener('click', () => {
   document.getElementById('desktopPreview').classList.remove('is-active');
 });
 
-document.getElementById('scrollTopButton').addEventListener('click', () => {
-  document.querySelector('.scroll-workarea').scrollTo({ top: 0, behavior: 'smooth' });
+const builderScrollArea = document.querySelector('.scroll-workarea');
+const scrollTopButton = document.getElementById('scrollTopButton');
+const updateScrollTopButton = () => {
+  scrollTopButton.hidden = builderScrollArea.scrollTop < 120;
+};
+
+scrollTopButton.addEventListener('click', () => {
+  builderScrollArea.scrollTo({ top: 0, behavior: 'smooth' });
 });
+builderScrollArea.addEventListener('scroll', updateScrollTopButton);
+updateScrollTopButton();
 
 document.getElementById('bannerOptions').addEventListener('click', (event) => {
   const button = event.target.closest('button[data-banner]');
@@ -1234,19 +1291,14 @@ document.getElementById('bannerOptions').addEventListener('click', (event) => {
   }
 
   const key = button.dataset.banner;
-  const preset = bannerPresets[key];
-  document.getElementById('bannerImage').value = key;
-  document.getElementById('campaignType').value = preset.type;
-  document.getElementById('bannerHeadline').value = preset.headline;
-  document.getElementById('mainHeading').value = preset.heading;
-  document.getElementById('primaryCta').value = preset.cta;
+  applyCampaignPreset(key);
   render();
 });
 
 document.getElementById('campaignType').addEventListener('change', () => {
   const match = Object.entries(bannerPresets).find(([, preset]) => preset.type === value('campaignType'));
   if (match) {
-    document.getElementById('bannerImage').value = match[0];
+    applyCampaignPreset(match[0]);
   }
   render();
 });

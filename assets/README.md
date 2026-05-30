@@ -1,15 +1,7 @@
 # Brand Assets
 
-Use only the official Kodexter Technologies logo provided by the project owner from:
+The active Pryvax Ltd. logo used by the app is:
 
 ```text
-C:\Users\Admin\Desktop\kodexter-logo.png
+assets/pryvax-logo-official.png
 ```
-
-The active project copy is:
-
-```text
-assets/kodexter-logo-official.png
-```
-
-The app intentionally does not include a recreated logo.

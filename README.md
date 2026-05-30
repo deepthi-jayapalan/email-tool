@@ -1,6 +1,6 @@
-# Kodexter Emailer Tool
+# Pryvax Emailer Tool
 
-Professional email template creation system for Kodexter Technologies Pvt. Ltd.
+Professional email template creation system for Pryvax Ltd.
 
 This project includes a strategy specification, a static working prototype, starter email templates, correction-engine prompts, banner concept data, and an implementation roadmap.
 
@@ -52,13 +52,13 @@ GMAIL_CLIENT_ID=YOUR_WEB_APPLICATION_CLIENT_ID.apps.googleusercontent.com
 ## Files
 
 - `index.html` - Static Emailer Tool prototype.
-- `src/styles.css` - Kodexter-aligned UI styling.
+- `src/styles.css` - Pryvax-aligned UI styling.
 - `src/app.js` - Builder interactions, live preview, suggestions, and rule-based review checks.
 - `data/banner-concepts.json` - Structured banner design concepts.
-- `templates/kodexter-base-email.html` - Starter email-safe HTML template.
-- `templates/kodexter-email.mjml` - Starter MJML template.
+- `templates/pryvax-base-email.html` - Starter email-safe HTML template.
+- `templates/pryvax-email.mjml` - Starter MJML template.
 - `prompts/correction-engine.md` - AI correction and brand review prompt framework.
-- `docs/kodexter-emailer-tool-strategy.md` - Full brand, UX, marketing, and product specification.
+- `docs/pryvax-emailer-tool-strategy.md` - Full brand, UX, marketing, and product specification.
 - `docs/implementation-roadmap.md` - Suggested build phases.
 
 ## Purpose

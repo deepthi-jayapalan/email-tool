@@ -1,8 +1,8 @@
 {
-  "name": "kodexter-emailer-tool",
+  "name": "pryvax-emailer-tool",
   "version": "0.1.0",
   "private": true,
-  "description": "Professional email template creation prototype for Kodexter Technologies Pvt. Ltd.",
+  "description": "Professional email template creation prototype for Pryvax Ltd.",
   "scripts": {
     "start": "python -m http.server 5173",
     "serve": "python -m http.server 5173"
@@ -10,7 +10,7 @@
   "keywords": [
     "email-builder",
     "marketing-automation",
-    "kodexter",
+    "pryvax",
     "email-templates"
   ],
   "license": "UNLICENSED"

@@ -223,7 +223,7 @@ button {
 .sidebar-logo {
   display: block;
   width: 100%;
-  max-width: 112px;
+  max-width: 150px;
   height: auto;
   margin: 0 auto;
   border-radius: 5px;
@@ -314,22 +314,34 @@ h3 small {
   margin-bottom: 16px;
 }
 
-.nav-list a {
+.nav-list a,
+.nav-list button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  border: 0;
   color: rgba(255, 255, 255, 0.82);
+  background: transparent;
   text-decoration: none;
   padding: 8px 10px;
   border-radius: 8px;
   font-size: 13px;
   font-weight: 800;
+  text-align: left;
 }
 
 .nav-list a:hover,
-.nav-list a.is-active {
+.nav-list a.is-active,
+.nav-list button:hover,
+.nav-list button.is-active {
   background: rgba(0, 199, 129, 0.18);
   color: #fff;
+}
+
+.builder-body .nav-list {
+  gap: 10px;
+  margin-bottom: 18px;
 }
 
 .new-campaign-btn {
@@ -343,6 +355,68 @@ h3 small {
   font-size: 13px;
   font-weight: 900;
   box-shadow: 0 10px 22px rgba(0, 199, 129, 0.22);
+}
+
+.builder-body .nav-list a,
+.builder-body .nav-list button {
+  width: 204px;
+  max-width: 100%;
+  min-height: 38px;
+  border: 0;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--green), #20dda0);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  justify-content: center;
+  padding: 0 11px;
+  text-align: center;
+  box-shadow: 0 10px 22px rgba(0, 199, 129, 0.22);
+}
+
+.builder-body .nav-list .campaign-menu {
+  display: grid;
+  gap: 6px;
+  width: 204px;
+  max-width: 100%;
+  padding: 4px 0 0;
+}
+
+.builder-body .nav-list .campaign-menu[hidden] {
+  display: none;
+}
+
+.builder-body .nav-list .campaign-menu a {
+  width: 100%;
+  min-height: 45px;
+  justify-content: flex-start;
+  border-radius: 7px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 900;
+  padding: 8px 14px;
+  text-align: left;
+  box-shadow: none;
+}
+
+.builder-body .nav-list .campaign-menu a:hover,
+.builder-body .nav-list .campaign-menu a.is-active {
+  background: rgba(0, 199, 129, 0.18);
+  color: #fff;
+  transform: none;
+  box-shadow: none;
+}
+
+.builder-body .nav-list a:hover,
+.builder-body .nav-list a.is-active,
+.builder-body .nav-list button:hover,
+.builder-body .nav-list button.is-active {
+  background: linear-gradient(135deg, var(--green), #20dda0);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(0, 199, 129, 0.28);
 }
 
 .workspace {
@@ -436,6 +510,10 @@ h3 small {
   font-size: 18px;
   font-weight: 900;
   box-shadow: 0 10px 22px rgba(0, 199, 129, 0.24);
+}
+
+.scroll-top-button[hidden] {
+  display: none;
 }
 
 .scroll-top-button:hover {
@@ -868,7 +946,7 @@ textarea:focus {
 
 .email-logo-img {
   display: block;
-  width: 160px;
+  width: 120px;
   max-width: 52%;
   height: auto;
   border-radius: 6px;

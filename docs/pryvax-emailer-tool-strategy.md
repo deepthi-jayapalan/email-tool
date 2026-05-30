@@ -1,26 +1,24 @@
-# Kodexter Technologies Emailer Tool Strategy
+# Pryvax Ltd. Emailer Tool Strategy
 
 ## Project Objective
 
-Build a modern, scalable, and brand-aligned email template creation system for Kodexter Technologies Pvt. Ltd. The tool should help the marketing team create professional email templates for customer communication, prospect nurturing, product promotions, onboarding flows, announcements, events, and client engagement.
+Build a modern, scalable, and brand-aligned email template creation system for Pryvax Ltd. The tool should help the marketing team create professional email templates for customer communication, prospect nurturing, product promotions, onboarding flows, announcements, events, and client engagement.
 
 The product should work as a brand-controlled campaign creation platform: flexible enough for marketers, structured enough for consistency, and intelligent enough to improve every message before it is sent.
 
 ---
 
-## A. Brand Research Summary
+## A. Brand Summary
 
-Publicly available company data identifies **Kodexter Technologies Private Limited** as an active private company registered with ROC Coimbatore under CIN `U72900TZ2019PTC031455`. The listed business activity is computer-related services, including website maintenance, multimedia presentations, and adjacent technology services.
-
-Because public brand assets are limited, the recommendations below should be treated as a working brand system until official logo files, brand guidelines, pitch decks, website assets, and customer-facing collateral are available.
+The recommendations below should be treated as a working Pryvax Ltd. brand system until official logo files, brand guidelines, pitch decks, website assets, and customer-facing collateral are available.
 
 ### Company Overview
 
-Kodexter Technologies should be positioned as a technology partner helping businesses build, automate, market, and scale through digital systems. The brand should communicate technical capability, execution reliability, and business value.
+Pryvax Ltd. should be positioned as a technology partner helping businesses build, automate, market, and scale through digital systems. The brand should communicate technical capability, execution reliability, and business value.
 
 ### Brand Philosophy
 
-Technology should be clear, useful, and growth-oriented. Kodexter should present itself as a partner that simplifies digital transformation and helps businesses move from fragmented manual processes to smarter digital systems.
+Technology should be clear, useful, and growth-oriented. Pryvax should present itself as a partner that simplifies digital transformation and helps businesses move from fragmented manual processes to smarter digital systems.
 
 ### Brand Voice
 
@@ -44,7 +42,7 @@ Avoid exaggerated claims, generic buzzwords, and overly casual language. The voi
 
 ### Brand Positioning
 
-Kodexter Technologies helps businesses design, build, and improve digital platforms, software systems, automation workflows, and marketing technology solutions that support measurable growth.
+Pryvax Ltd. helps businesses design, build, and improve digital platforms, software systems, automation workflows, and marketing technology solutions that support measurable growth.
 
 ### Target Audience
 
@@ -221,7 +219,7 @@ Editable fields:
 - Sender name
 - Sender designation
 - Company identity
-- Optional Kodexter logo placement
+- Optional Pryvax logo placement
 - Optional campaign label
 
 Recommended header behavior:
@@ -236,7 +234,7 @@ Recommended header behavior:
 Example:
 
 ```text
-Kodexter Technologies
+Pryvax Ltd.
 From: Ananya Rao, Growth Consultant
 Campaign: AI Automation Discovery Call
 ```
@@ -261,7 +259,7 @@ Subject examples:
 
 Preheader examples:
 
-- `Explore how Kodexter helps teams build, automate, and grow with scalable technology.`
+- `Explore how Pryvax helps teams build, automate, and grow with scalable technology.`
 - `A concise guide to improving operations with custom software and automation.`
 - `See how your team can reduce manual work and improve visibility.`
 
@@ -288,7 +286,7 @@ Hi {{FirstName}},
 
 Many growing teams at {{CompanyName}} lose time managing disconnected tools, manual workflows, and delayed reporting.
 
-Kodexter helps businesses design and build scalable software systems, automation workflows, and digital platforms that improve speed, visibility, and customer engagement.
+Pryvax helps businesses design and build scalable software systems, automation workflows, and digital platforms that improve speed, visibility, and customer engagement.
 
 What we can help you with:
 - Custom web and software development
@@ -393,14 +391,14 @@ We are providing best software services for all types of companies and we can he
 Improved:
 
 ```text
-Kodexter helps growing businesses build reliable software systems that improve operations, customer engagement, and digital growth.
+Pryvax helps growing businesses build reliable software systems that improve operations, customer engagement, and digital growth.
 ```
 
 ### 2. Brand Consistency And Marketing Optimization Engine
 
 Purpose:
 
-Ensure each email sounds like Kodexter: clear, consultative, technology-led, and outcome-focused.
+Ensure each email sounds like Pryvax: clear, consultative, technology-led, and outcome-focused.
 
 Checks:
 
@@ -410,7 +408,7 @@ Checks:
 - Is the CTA direct and actionable?
 - Is the tone too generic or too sales-heavy?
 - Does the message connect technology to business outcomes?
-- Does it use Kodexter-approved service language?
+- Does it use Pryvax-approved service language?
 
 Suggested scoring:
 
@@ -435,7 +433,7 @@ Suggested rewrite actions:
 The system prompt for brand review should enforce:
 
 ```text
-You are reviewing email copy for Kodexter Technologies Pvt. Ltd.
+You are reviewing email copy for Pryvax Ltd.
 Maintain a professional, consultative, B2B technology tone.
 Prioritize clarity, customer value, concise messaging, and conversion.
 Avoid exaggerated claims, vague buzzwords, and overly casual phrasing.
@@ -546,7 +544,7 @@ Recommended image/icon style:
 
 Design objective:
 
-Position Kodexter as a reliable custom software and web development partner.
+Position Pryvax as a reliable custom software and web development partner.
 
 Visual style direction:
 
@@ -805,7 +803,7 @@ Suggested categories:
 
 Recommended reusable blocks:
 
-- Kodexter header
+- Pryvax header
 - Company boilerplate
 - Service intro
 - CTA group
@@ -926,7 +924,7 @@ Awareness:
 
 Consideration:
 
-- Explain Kodexter services.
+- Explain Pryvax services.
 - Use proof, examples, and comparison points.
 - Offer consultations or assessments.
 
@@ -999,7 +997,7 @@ Retention:
 
 ## J. Future Scalability Recommendations
 
-- Create a centralized Kodexter brand kit inside the tool.
+- Create a centralized Pryvax brand kit inside the tool.
 - Add role-based access for writer, reviewer, approver, and admin.
 - Add approval workflows for campaign publishing.
 - Build reusable campaign journeys for onboarding, nurturing, reactivation, and post-demo follow-up.
@@ -1051,4 +1049,3 @@ The first version should focus on speed, consistency, and conversion quality.
 - Campaign journey builder
 - Predictive performance scoring
 - AI-generated campaign briefs
-

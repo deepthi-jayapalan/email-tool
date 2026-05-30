@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kodexter Emailer Tool</title>
+    <title>Pryvax Emailer Tool</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
@@ -14,22 +14,24 @@
     <div class="app-shell">
       <aside class="sidebar">
         <div class="brand-lockup">
-          <img class="sidebar-logo" src="assets/kodexter-logo-official.png" alt="Kodexter Technologies Pvt. Ltd. official logo" onerror="this.remove(); document.querySelector('.brand-lockup').classList.add('logo-missing');">
+          <img class="sidebar-logo" src="assets/pryvax-logo-official.png?v=20260528" alt="Pryvax Ltd. official logo" onerror="this.remove(); document.querySelector('.brand-lockup').classList.add('logo-missing');">
           <div class="logo-fallback">
-            <strong>Kodexter Technologies</strong>
+            <strong>Pryvax Ltd.</strong>
             <span>Logo unavailable</span>
           </div>
         </div>
 
-        <button class="new-campaign-btn" type="button" id="newCampaign">New Campaign</button>
-
-        <nav class="nav-list" aria-label="Template sections">
-          <a href="#campaign">Campaign</a>
-          <a href="#subject">Subject</a>
-          <a href="#content">Content</a>
-          <a href="#cta">CTA</a>
-          <a href="#gmail">Schedule Sending</a>
-          <a href="#review">Review</a>
+        <nav class="nav-list" aria-label="Main menu">
+          <button type="button" id="newCampaign" class="is-active" aria-expanded="false" aria-controls="newCampaignMenu">New Campaign</button>
+          <div class="campaign-menu" id="newCampaignMenu" hidden>
+            <a href="#campaign" class="is-active">Campaign</a>
+            <a href="#subject">Subject</a>
+            <a href="#content">Content</a>
+            <a href="#cta">CTA</a>
+            <a href="#gmail">Schedule Sending</a>
+            <a href="#review">Review</a>
+          </div>
+          <a href="response-center.html">Response Center</a>
         </nav>
 
         <section class="panel compact">
@@ -125,17 +127,17 @@
               <div class="two-col">
                 <label>
                   Sender name
-                  <input id="senderName" value="Kodexter Growth Team" autocomplete="off">
+                  <input id="senderName" value="Pryvax Growth Team" autocomplete="off">
                 </label>
                 <label>
                   Sender designation/company
-                  <input id="senderIdentity" value="Kodexter Technologies Pvt. Ltd." autocomplete="off">
+                  <input id="senderIdentity" value="Pryvax Ltd." autocomplete="off">
                 </label>
               </div>
               <div class="brand-asset-note">
                 <div>
                   <strong>Official logo</strong>
-                  <p>Using the provided Kodexter Technologies logo from <code>assets/kodexter-logo-official.png</code>.</p>
+                  <p>Using the provided Pryvax Ltd. logo from <code>assets/pryvax-logo-official.png</code>.</p>
                 </div>
               </div>
             </section>
@@ -152,7 +154,7 @@
               <div class="suggestion-row" id="subjectSuggestions"></div>
               <label>
                 Preview text / preheader
-                <input id="preheader" value="Explore how Kodexter helps teams build, automate, and grow with scalable technology." autocomplete="off">
+                <input id="preheader" value="Explore how Pryvax helps teams build, automate, and grow with scalable technology." autocomplete="off">
               </label>
               <div class="two-col">
                 <label>
@@ -224,11 +226,11 @@
               <button class="ghost full-width" type="button" id="optimizeBody">Optimize Body</button>
               <label>
                 Body copy
-                <textarea id="bodyCopy" rows="8">Hi Priya,
+                <textarea id="bodyCopy" rows="8">Hi (name),
 
 Many growing teams lose time managing disconnected tools, manual workflows, and delayed reporting.
 
-Kodexter helps businesses design and build scalable software systems, automation workflows, and digital platforms that improve speed, visibility, and customer engagement.</textarea>
+Pryvax helps businesses design and build scalable software systems, automation workflows, and digital platforms that improve speed, visibility, and customer engagement.</textarea>
               </label>
               <label>
                 Bullet points
@@ -251,7 +253,7 @@ Digital marketing and lead engagement systems</textarea>
                 </label>
                 <label>
                   Primary CTA URL
-                  <input id="primaryUrl" value="https://kodexter.example.com/contact" autocomplete="off">
+                  <input id="primaryUrl" value="https://pryvax.example.com/contact" autocomplete="off">
                 </label>
               </div>
               <div class="two-col">
@@ -332,12 +334,12 @@ Digital marketing and lead engagement systems</textarea>
               </section>
             </aside>
           </div>
-          <button class="scroll-top-button" type="button" id="scrollTopButton" aria-label="Scroll editor to top">↑</button>
+          <button class="scroll-top-button" type="button" id="scrollTopButton" aria-label="Scroll editor to top" hidden>&#8593;</button>
         </div>
       </main>
     </div>
 
     <script src="config.js"></script>
-    <script src="src/app.js"></script>
+    <script src="src/app.js?v=20260528-4"></script>
   </body>
 </html>
